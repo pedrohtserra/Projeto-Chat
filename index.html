@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="chat-container">
+      <ul id="messages"></ul>
+      <form id="form">
+          <input id="input" autocomplete="off" placeholder="Digite uma mensagem..." />
+          <button>Enviar</button>
+      </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+        
+    <script>
+  var socket = io();
+  var form = document.getElementById('form');
+  var input = document.getElementById('input');
+  var messages = document.getElementById('messages');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) {
+      socket.emit('chat-mensagem', {
+        texto: input.value
+      });
+      input.value = '';
+    }
+  });
+
+  socket.on('chat-mensagem', function(data) {
+    const classe = (data.id === socket.id) ? 'minha-mensagem' : 'outra-mensagem';
+    adicionarMensagem(data.texto, classe);
+  });
+
+  function adicionarMensagem(texto, classe) {
+    var item = document.createElement('li');
+    item.textContent = texto;
+    item.classList.add(classe);
+    messages.appendChild(item);
+    
+    messages.scrollTo({
+      top: messages.scrollHeight,
+      behavior: 'smooth'
+    });
+  }
+</script>
+</body>
+</html>
