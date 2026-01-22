@@ -4,15 +4,19 @@ const path = require('path');
 const { Server } = require('socket.io');
 
 const server = http.createServer((req, res) => {
-    let filePath = req.url === '/' ? './index.html' : '.' + req.url;
+let filePath = req.url === '/' ? './index.html' : '.' + req.url;
     const extname = path.extname(filePath);
     
+    let contentType = 'text/html';
+    if (extname === '.css') contentType = 'text/css';
+    if (extname === '.js') contentType = 'text/javascript';
+
     fs.readFile(filePath, (error, content) => {
         if (error) {
             res.writeHead(404);
             res.end('Arquivo nao encontrado');
         } else {
-            res.writeHead(200, { 'Content-Type': extname === '.css' ? 'text/css' : 'text/html' });
+            res.writeHead(200, { 'Content-Type': contentType });
             res.end(content, 'utf-8');
         }
     });

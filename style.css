@@ -93,3 +93,38 @@ button {
 button:hover {
     background: #3561b3;
 }
+
+#login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #35475e;
+}
+
+.login-box {
+    background-color: #74a2bd;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+#nome-usuario {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    width: 250px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+#botao-login {
+    background-color: #0e2dda;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}

@@ -7,7 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="chat-container">
+    <div id="login-container">
+        <div class="login-box">
+            <h2>Bem-vindo ao Chat!</h2>
+            <input id="nome-usuario" placeholder="Digite seu nome de usuário..." autocomplete="off" />
+            <button id="botao-login">Entrar no Chat</button>
+        </div>
+    </div>
+
+    <div id="chat-container" style="display: none;">
       <ul id="messages"></ul>
       <form id="form">
           <input id="input" autocomplete="off" placeholder="Digite uma mensagem..." />
@@ -17,38 +25,6 @@
 
     <script src="/socket.io/socket.io.js"></script>
         
-    <script>
-      var socket = io();
-      var form = document.getElementById('form');
-      var input = document.getElementById('input');
-      var messages = document.getElementById('messages');
-    
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (input.value) {
-          socket.emit('chat-mensagem', {
-            texto: input.value
-          });
-          input.value = '';
-        }
-      });
-    
-      socket.on('chat-mensagem', function(data) {
-        const classe = (data.id === socket.id) ? 'minha-mensagem' : 'outra-mensagem';
-        adicionarMensagem(data.texto, classe);
-      });
-    
-      function adicionarMensagem(texto, classe) {
-        var item = document.createElement('li');
-        item.textContent = texto;
-        item.classList.add(classe);
-        messages.appendChild(item);
-        
-        messages.scrollTo({
-          top: messages.scrollHeight,
-          behavior: 'smooth'
-        });
-      }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
