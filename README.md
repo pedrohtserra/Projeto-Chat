@@ -14,3 +14,8 @@ Como utilizar o Bot Moderador:
 1. Instale o Python
 2. Instale a biblioteca do cliente Socket.io para Python: `pip install "python-socketio[client]"`
 3. Com o servidor do chat já iniciado, em outro terminal, digite `python moderador.py`
+
+Para rodar com o Angular:
+1. Caso ainda não tenha a ferramenta de linha de comando do Angular, instale-a globalmente com o comando: `npm install -g @angular/cli`
+2. No terminal, dentro da pasta raiz do projeto Angular, instale os pacotes necessários (como o Socket.io-client): `npm install`
+3. Com o servidor já iniciado (`node server.js` na pasta raiz), execute o pelo terminal, dentro da pasta "chat-frontend" (`cd chat-frontend`), o comando `ng serve`
