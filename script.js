@@ -46,3 +46,12 @@ function adicionarMensagem(texto, classe) {
         behavior: 'smooth'
     });
 }
+
+socket.on('historico', (mensagens) => {
+    mensagens.forEach(msg => {
+        const classe = (msg.usuario === nomeUsuario) ? 'minha-mensagem' : 'outra-mensagem';
+        const textoFormatado = `${msg.usuario}: ${msg.texto}`;
+        
+        adicionarMensagem(textoFormatado, classe);
+    });
+});
