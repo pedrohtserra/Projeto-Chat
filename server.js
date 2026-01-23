@@ -49,7 +49,12 @@ let filePath = req.url === '/' ? './index.html' : '.' + req.url;
     });
 });
 
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:4200",
+    methods: ["GET", "POST"]
+  }
+});
 
 io.on('connection', async (socket) => {
     console.log('Um usuário conectou: ' + socket.id);

@@ -1,0 +1,20 @@
+<div id="login-container" *ngIf="!logado">
+    <div class="login-box">
+        <h2>Bem-vindo ao Chat!</h2>
+        <input [(ngModel)]="nomeUsuario" placeholder="Digite seu nome de usuário..." autocomplete="off" />
+        <button (click)="entrar()">Entrar no Chat</button>
+    </div>
+</div>
+
+<div id="chat-container" *ngIf="logado">
+    <ul id="messages">
+      <li *ngFor="let m of mensagens" [ngClass]="m.usuario === nomeUsuario ? 'minha-mensagem' : 'outra-mensagem'">
+        <strong>{{ m.usuario }}:</strong> {{ m.texto }}
+      </li>
+    </ul>
+    
+    <form id="form" (submit)="enviar(); $event.preventDefault()">
+        <input [(ngModel)]="textoMensagem" name="mensagem" autocomplete="off" placeholder="Digite uma mensagem..." />
+        <button type="submit">Enviar</button>
+    </form>
+</div>
