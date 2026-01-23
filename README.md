@@ -18,4 +18,4 @@ Como utilizar o Bot Moderador:
 Para rodar com o Angular:
 1. Caso ainda não tenha a ferramenta de linha de comando do Angular, instale-a globalmente com o comando: `npm install -g @angular/cli`
 2. No terminal, dentro da pasta raiz do projeto Angular, instale os pacotes necessários (como o Socket.io-client): `npm install`
-3. Com o servidor já iniciado (`node server.js` na pasta raiz), execute o pelo terminal, dentro da pasta "chat-frontend" (`cd chat-frontend`), o comando `ng serve`
+3. Com o servidor já iniciado (`node server.js` na pasta raiz), execute pelo terminal, dentro da pasta "chat-frontend" (`cd chat-frontend`), o comando `ng serve`
