@@ -1,7 +1,7 @@
 Chat com Node.js e Angular
 
 Como rodar:
-1. Clone o repositório
+1. Clone o repositório, `git clone https://github.com/seu-usuario/Projeto-Chat.git`
 2. No terminal, use: `npm install`
 3. Inicie o servidor: `node server.js`
 4. Acesse: `http://localhost:3000`
