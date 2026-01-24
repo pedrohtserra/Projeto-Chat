@@ -1,4 +1,4 @@
-Chat em Node.js
+Chat com Node.js e Angular
 
 Como rodar:
 1. Clone o repositório
